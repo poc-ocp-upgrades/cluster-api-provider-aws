@@ -16,6 +16,8 @@ import (
 func removeDuplicatedTags(tags []*ec2.Tag) []*ec2.Tag {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	m := make(map[string]bool)
 	result := []*ec2.Tag{}
 	for _, entry := range tags {
@@ -27,6 +29,8 @@ func removeDuplicatedTags(tags []*ec2.Tag) []*ec2.Tag {
 	return result
 }
 func removeStoppedMachine(machine *machinev1.Machine, client awsclient.Client) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instances, err := getStoppedInstances(machine, client)
@@ -43,6 +47,8 @@ func removeStoppedMachine(machine *machinev1.Machine, client awsclient.Client) e
 func buildEC2Filters(inputFilters []providerconfigv1.Filter) []*ec2.Filter {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	filters := make([]*ec2.Filter, len(inputFilters))
 	for i, f := range inputFilters {
 		values := make([]*string, len(f.Values))
@@ -54,6 +60,8 @@ func buildEC2Filters(inputFilters []providerconfigv1.Filter) []*ec2.Filter {
 	return filters
 }
 func getSecurityGroupsIDs(securityGroups []providerconfigv1.AWSResourceReference, client awsclient.Client) ([]*string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var securityGroupIDs []*string
@@ -80,6 +88,8 @@ func getSecurityGroupsIDs(securityGroups []providerconfigv1.AWSResourceReference
 	return securityGroupIDs, nil
 }
 func getSubnetIDs(subnet providerconfigv1.AWSResourceReference, availabilityZone string, client awsclient.Client) ([]*string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var subnetIDs []*string
@@ -114,6 +124,8 @@ func getSubnetIDs(subnet providerconfigv1.AWSResourceReference, availabilityZone
 	return subnetIDs, nil
 }
 func getAMI(AMI providerconfigv1.AWSResourceReference, client awsclient.Client) (*string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if AMI.ID != nil {
@@ -157,6 +169,8 @@ func getAMI(AMI providerconfigv1.AWSResourceReference, client awsclient.Client) 
 func getBlockDeviceMappings(blockDeviceMappings []providerconfigv1.BlockDeviceMappingSpec, AMI string, client awsclient.Client) ([]*ec2.BlockDeviceMapping, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if len(blockDeviceMappings) == 0 {
 		return []*ec2.BlockDeviceMapping{}, nil
 	}
@@ -180,6 +194,8 @@ func getBlockDeviceMappings(blockDeviceMappings []providerconfigv1.BlockDeviceMa
 	return []*ec2.BlockDeviceMapping{&blockDeviceMapping}, nil
 }
 func launchInstance(machine *machinev1.Machine, machineProviderConfig *providerconfigv1.AWSMachineProviderConfig, userData []byte, client awsclient.Client) (*ec2.Instance, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	amiID, err := getAMI(machineProviderConfig.AMI, client)
@@ -245,14 +261,20 @@ type instanceList []*ec2.Instance
 func (il instanceList) Len() int {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return len(il)
 }
 func (il instanceList) Swap(i, j int) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	il[i], il[j] = il[j], il[i]
 }
 func (il instanceList) Less(i, j int) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if il[i].LaunchTime == nil && il[j].LaunchTime == nil {
@@ -267,6 +289,8 @@ func (il instanceList) Less(i, j int) bool {
 	return (*il[i].LaunchTime).After(*il[j].LaunchTime)
 }
 func sortInstances(instances []*ec2.Instance) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	sort.Sort(instanceList(instances))

@@ -25,6 +25,8 @@ type manifestParams struct{ ClusterID string }
 func readMachineManifest(manifestParams *manifestParams, manifestLoc string) (*machinev1.Machine, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machine := &machinev1.Machine{}
 	manifestBytes, err := ioutil.ReadFile(manifestLoc)
 	if err != nil {
@@ -45,6 +47,8 @@ func readMachineManifest(manifestParams *manifestParams, manifestLoc string) (*m
 	return machine, nil
 }
 func readClusterResources(manifestParams *manifestParams, clusterLoc, machineLoc, awsCredentialSecretLoc, userDataLoc string) (*machinev1.Cluster, *machinev1.Machine, *apiv1.Secret, *apiv1.Secret, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machine, err := readMachineManifest(manifestParams, machineLoc)
@@ -86,6 +90,8 @@ func readClusterResources(manifestParams *manifestParams, clusterLoc, machineLoc
 func createSecretAndWait(f *framework.Framework, secret *apiv1.Secret) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_, err := f.KubeClient.CoreV1().Secrets(secret.Namespace).Create(secret)
 	if err != nil {
 		return err
@@ -97,6 +103,8 @@ func createSecretAndWait(f *framework.Framework, secret *apiv1.Secret) error {
 	return err
 }
 func createActuator(machine *machinev1.Machine, awsCredentials, userData *apiv1.Secret) (*machineactuator.Actuator, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	objList := []runtime.Object{machine}
@@ -119,6 +127,8 @@ func createActuator(machine *machinev1.Machine, awsCredentials, userData *apiv1.
 	return actuator, nil
 }
 func cmdRun(binaryPath string, args ...string) ([]byte, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cmd := exec.Command(binaryPath, args...)

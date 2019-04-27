@@ -15,6 +15,8 @@ import (
 func TestRemoveDuplicatedTags(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cases := []struct {
 		tagList		[]*ec2.Tag
 		expected	[]*ec2.Tag
@@ -27,6 +29,8 @@ func TestRemoveDuplicatedTags(t *testing.T) {
 	}
 }
 func TestBuildEC2Filters(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	filter1 := "filter1"
@@ -42,6 +46,8 @@ func TestBuildEC2Filters(t *testing.T) {
 	}
 }
 func TestGetBlockDeviceMappings(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	rootDeviceName := "/dev/sda1"
@@ -68,6 +74,8 @@ func TestGetBlockDeviceMappings(t *testing.T) {
 func TestRemoveStoppedMachine(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machine, err := stubMachine()
 	if err != nil {
 		t.Fatalf("Unable to build test machine manifest: %v", err)
@@ -90,6 +98,8 @@ func TestRemoveStoppedMachine(t *testing.T) {
 func TestRunningInstance(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machine, err := stubMachine()
 	if err != nil {
 		t.Fatalf("Unable to build test machine manifest: %v", err)
@@ -100,6 +110,8 @@ func TestRunningInstance(t *testing.T) {
 	getRunningInstance(machine, mockAWSClient)
 }
 func TestLaunchInstance(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machine, err := stubMachine()
@@ -144,6 +156,8 @@ func TestLaunchInstance(t *testing.T) {
 	}
 }
 func TestSortInstances(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instances := []*ec2.Instance{{LaunchTime: aws.Time(time.Now())}, {LaunchTime: nil}, {LaunchTime: nil}, {LaunchTime: aws.Time(time.Now())}}

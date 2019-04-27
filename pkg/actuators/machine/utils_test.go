@@ -14,9 +14,13 @@ import (
 func init() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machinev1.AddToScheme(scheme.Scheme)
 }
 func TestProviderConfigFromMachine(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	providerConfig := &providerconfigv1.AWSMachineProviderConfig{TypeMeta: metav1.TypeMeta{APIVersion: "awsproviderconfig.openshift.io/v1beta1", Kind: "AWSMachineProviderConfig"}, InstanceType: "testInstance", AMI: providerconfigv1.AWSResourceReference{ID: nil}, Tags: []providerconfigv1.TagSpecification{{Name: "", Value: ""}}, IAMInstanceProfile: &providerconfigv1.AWSResourceReference{ID: nil}, UserDataSecret: &corev1.LocalObjectReference{Name: ""}, Subnet: providerconfigv1.AWSResourceReference{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{""}}}}, Placement: providerconfigv1.Placement{Region: "", AvailabilityZone: ""}, SecurityGroups: []providerconfigv1.AWSResourceReference{{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{""}}}}}}

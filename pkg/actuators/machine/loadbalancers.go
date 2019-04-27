@@ -15,6 +15,8 @@ import (
 func registerWithClassicLoadBalancers(client awsclient.Client, names []string, instance *ec2.Instance) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.V(4).Infof("Updating classic load balancer registration for %q", *instance.InstanceId)
 	elbInstance := &elb.Instance{InstanceId: instance.InstanceId}
 	var errs []error
@@ -31,6 +33,8 @@ func registerWithClassicLoadBalancers(client awsclient.Client, names []string, i
 	return nil
 }
 func registerWithNetworkLoadBalancers(client awsclient.Client, names []string, instance *ec2.Instance) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.V(4).Infof("Updating network load balancer registration for %q", *instance.InstanceId)

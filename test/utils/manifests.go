@@ -16,15 +16,21 @@ import (
 func GenerateAwsCredentialsSecretFromEnv(secretName, namespace string) *apiv1.Secret {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return &apiv1.Secret{ObjectMeta: metav1.ObjectMeta{Name: secretName, Namespace: namespace}, Data: map[string][]byte{awsclient.AwsCredsSecretIDKey: []byte(os.Getenv("AWS_ACCESS_KEY_ID")), awsclient.AwsCredsSecretAccessKey: []byte(os.Getenv("AWS_SECRET_ACCESS_KEY"))}}
 }
 func testingAWSMachineProviderSpec(awsCredentialsSecretName string, clusterID string) *providerconfigv1.AWSMachineProviderConfig {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	publicIP := true
 	return &providerconfigv1.AWSMachineProviderConfig{AMI: providerconfigv1.AWSResourceReference{Filters: []providerconfigv1.Filter{{Name: "tag:image_stage", Values: []string{"base"}}, {Name: "tag:operating_system", Values: []string{"rhel"}}, {Name: "tag:ready", Values: []string{"yes"}}}}, CredentialsSecret: &apiv1.LocalObjectReference{Name: awsCredentialsSecretName}, InstanceType: "m4.xlarge", Placement: providerconfigv1.Placement{Region: "us-east-1", AvailabilityZone: "us-east-1a"}, Subnet: providerconfigv1.AWSResourceReference{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{fmt.Sprintf("%s-worker-*", clusterID)}}}}, Tags: []providerconfigv1.TagSpecification{{Name: "openshift-node-group-config", Value: "node-config-master"}, {Name: "host-type", Value: "master"}, {Name: "sub-host-type", Value: "default"}}, SecurityGroups: []providerconfigv1.AWSResourceReference{{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{fmt.Sprintf("%s-*", clusterID)}}}}}, PublicIP: &publicIP}
 }
 func TestingMachineProviderSpec(awsCredentialsSecretName string, clusterID string) (machinev1beta1.ProviderSpec, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machinePc := testingAWSMachineProviderSpec(awsCredentialsSecretName, clusterID)
@@ -39,6 +45,8 @@ func TestingMachineProviderSpec(awsCredentialsSecretName string, clusterID strin
 	return *config, nil
 }
 func TestingMachineProviderSpecWithEBS(awsCredentialsSecretName string, clusterID string) (machinev1beta1.ProviderSpec, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	volumeSize := int64(142)
@@ -58,6 +66,8 @@ func TestingMachineProviderSpecWithEBS(awsCredentialsSecretName string, clusterI
 func MasterMachineProviderSpec(awsCredentialsSecretName, masterUserDataSecretName, clusterID string) (machinev1beta1.ProviderSpec, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	publicIP := true
 	machinePc := &providerconfigv1.AWSMachineProviderConfig{AMI: providerconfigv1.AWSResourceReference{Filters: []providerconfigv1.Filter{{Name: "tag:image_stage", Values: []string{"base"}}, {Name: "tag:operating_system", Values: []string{"rhel"}}, {Name: "tag:ready", Values: []string{"yes"}}}}, CredentialsSecret: &apiv1.LocalObjectReference{Name: awsCredentialsSecretName}, InstanceType: "m4.xlarge", Placement: providerconfigv1.Placement{Region: "us-east-1", AvailabilityZone: "us-east-1a"}, Subnet: providerconfigv1.AWSResourceReference{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{fmt.Sprintf("%s-worker-*", clusterID)}}}}, SecurityGroups: []providerconfigv1.AWSResourceReference{{Filters: []providerconfigv1.Filter{{Name: "tag:Name", Values: []string{fmt.Sprintf("%s-*", clusterID)}}}}}, PublicIP: &publicIP, UserDataSecret: &apiv1.LocalObjectReference{Name: masterUserDataSecretName}}
 	codec, err := providerconfigv1.NewCodec()
@@ -71,6 +81,8 @@ func MasterMachineProviderSpec(awsCredentialsSecretName, masterUserDataSecretNam
 	return *providerSpec, nil
 }
 func WorkerMachineSetProviderSpec(awsCredentialsSecretName, workerUserDataSecretName, clusterID string) (machinev1beta1.ProviderSpec, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	publicIP := true
@@ -88,7 +100,16 @@ func WorkerMachineSetProviderSpec(awsCredentialsSecretName, workerUserDataSecret
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

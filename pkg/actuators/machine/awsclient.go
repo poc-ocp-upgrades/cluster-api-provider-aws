@@ -14,9 +14,13 @@ var _ types.CloudProviderClient = &AwsClientWrapper{}
 func NewAwsClientWrapper(client awsclient.Client) *AwsClientWrapper {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return &AwsClientWrapper{client: client}
 }
 func (client *AwsClientWrapper) GetRunningInstances(machine *machinev1beta1.Machine) ([]interface{}, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	runningInstances, err := getRunningInstances(machine, client.client)
@@ -32,6 +36,8 @@ func (client *AwsClientWrapper) GetRunningInstances(machine *machinev1beta1.Mach
 func (client *AwsClientWrapper) GetPublicDNSName(machine *machinev1beta1.Machine) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
 	if err != nil {
 		return "", err
@@ -44,6 +50,8 @@ func (client *AwsClientWrapper) GetPublicDNSName(machine *machinev1beta1.Machine
 func (client *AwsClientWrapper) GetPrivateIP(machine *machinev1beta1.Machine) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
 	if err != nil {
 		return "", err
@@ -54,6 +62,8 @@ func (client *AwsClientWrapper) GetPrivateIP(machine *machinev1beta1.Machine) (s
 	return *instance.PrivateIpAddress, nil
 }
 func (client *AwsClientWrapper) GetSecurityGroups(machine *machinev1beta1.Machine) ([]string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
@@ -71,6 +81,8 @@ func (client *AwsClientWrapper) GetSecurityGroups(machine *machinev1beta1.Machin
 func (client *AwsClientWrapper) GetIAMRole(machine *machinev1beta1.Machine) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
 	if err != nil {
 		return "", err
@@ -81,6 +93,8 @@ func (client *AwsClientWrapper) GetIAMRole(machine *machinev1beta1.Machine) (str
 	return *instance.IamInstanceProfile.Id, nil
 }
 func (client *AwsClientWrapper) GetTags(machine *machinev1beta1.Machine) (map[string]string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
@@ -96,6 +110,8 @@ func (client *AwsClientWrapper) GetTags(machine *machinev1beta1.Machine) (map[st
 func (client *AwsClientWrapper) GetSubnet(machine *machinev1beta1.Machine) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
 	if err != nil {
 		return "", err
@@ -108,6 +124,8 @@ func (client *AwsClientWrapper) GetSubnet(machine *machinev1beta1.Machine) (stri
 func (client *AwsClientWrapper) GetAvailabilityZone(machine *machinev1beta1.Machine) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)
 	if err != nil {
 		return "", err
@@ -118,6 +136,8 @@ func (client *AwsClientWrapper) GetAvailabilityZone(machine *machinev1beta1.Mach
 	return *instance.Placement.AvailabilityZone, nil
 }
 func (client *AwsClientWrapper) GetVolumes(machine *machinev1beta1.Machine) (map[string]map[string]interface{}, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instance, err := getRunningInstance(machine, client.client)

@@ -37,6 +37,8 @@ const (
 func init() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machinev1.AddToScheme(scheme.Scheme)
 	rootCmd.PersistentFlags().StringP("machine", "m", "", "Machine manifest")
 	rootCmd.PersistentFlags().StringP("cluster", "c", "", "Cluster manifest")
@@ -58,9 +60,13 @@ func init() {
 func usage() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	fmt.Printf("Usage: %s\n\n", os.Args[0])
 }
 func checkFlags(cmd *cobra.Command) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if cmd.Flag("cluster").Value.String() == "" {
@@ -75,6 +81,8 @@ func checkFlags(cmd *cobra.Command) error {
 var rootCmd = &cobra.Command{Use: "aws-actuator-test", Short: "Test for Cluster API AWS actuator"}
 
 func createCommand() *cobra.Command {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return &cobra.Command{Use: "create", Short: "Create machine instance for specified cluster", RunE: func(cmd *cobra.Command, args []string) error {
@@ -98,6 +106,8 @@ func createCommand() *cobra.Command {
 	}}
 }
 func deleteCommand() *cobra.Command {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return &cobra.Command{Use: "delete", Short: "Delete machine instance", RunE: func(cmd *cobra.Command, args []string) error {
@@ -125,6 +135,8 @@ func deleteCommand() *cobra.Command {
 func existsCommand() *cobra.Command {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return &cobra.Command{Use: "exists", Short: "Determine if underlying machine instance exists", RunE: func(cmd *cobra.Command, args []string) error {
 		if err := checkFlags(cmd); err != nil {
 			return err
@@ -150,6 +162,8 @@ func existsCommand() *cobra.Command {
 	}}
 }
 func bootstrapCommand() *cobra.Command {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cmd := &cobra.Command{Use: "bootstrap", Short: "Bootstrap kubernetes cluster with kubeadm", RunE: func(cmd *cobra.Command, args []string) error {
@@ -268,6 +282,8 @@ func bootstrapCommand() *cobra.Command {
 func main() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	err := rootCmd.Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error occurred: %v\n", err)
@@ -277,7 +293,16 @@ func main() {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

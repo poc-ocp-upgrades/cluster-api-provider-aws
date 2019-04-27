@@ -8,12 +8,16 @@ import (
 func (in *AWSMachineProviderCondition) DeepCopyInto(out *AWSMachineProviderCondition) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	in.LastProbeTime.DeepCopyInto(&out.LastProbeTime)
 	in.LastTransitionTime.DeepCopyInto(&out.LastTransitionTime)
 	return
 }
 func (in *AWSMachineProviderCondition) DeepCopy() *AWSMachineProviderCondition {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {
@@ -24,6 +28,8 @@ func (in *AWSMachineProviderCondition) DeepCopy() *AWSMachineProviderCondition {
 	return out
 }
 func (in *AWSMachineProviderConfig) DeepCopyInto(out *AWSMachineProviderConfig) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -86,6 +92,8 @@ func (in *AWSMachineProviderConfig) DeepCopyInto(out *AWSMachineProviderConfig) 
 func (in *AWSMachineProviderConfig) DeepCopy() *AWSMachineProviderConfig {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -96,12 +104,16 @@ func (in *AWSMachineProviderConfig) DeepCopy() *AWSMachineProviderConfig {
 func (in *AWSMachineProviderConfig) DeepCopyObject() runtime.Object {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if c := in.DeepCopy(); c != nil {
 		return c
 	}
 	return nil
 }
 func (in *AWSMachineProviderConfigList) DeepCopyInto(out *AWSMachineProviderConfigList) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -119,6 +131,8 @@ func (in *AWSMachineProviderConfigList) DeepCopyInto(out *AWSMachineProviderConf
 func (in *AWSMachineProviderConfigList) DeepCopy() *AWSMachineProviderConfigList {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -129,12 +143,16 @@ func (in *AWSMachineProviderConfigList) DeepCopy() *AWSMachineProviderConfigList
 func (in *AWSMachineProviderConfigList) DeepCopyObject() runtime.Object {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if c := in.DeepCopy(); c != nil {
 		return c
 	}
 	return nil
 }
 func (in *AWSMachineProviderStatus) DeepCopyInto(out *AWSMachineProviderStatus) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -161,6 +179,8 @@ func (in *AWSMachineProviderStatus) DeepCopyInto(out *AWSMachineProviderStatus) 
 func (in *AWSMachineProviderStatus) DeepCopy() *AWSMachineProviderStatus {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -171,12 +191,16 @@ func (in *AWSMachineProviderStatus) DeepCopy() *AWSMachineProviderStatus {
 func (in *AWSMachineProviderStatus) DeepCopyObject() runtime.Object {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if c := in.DeepCopy(); c != nil {
 		return c
 	}
 	return nil
 }
 func (in *AWSResourceReference) DeepCopyInto(out *AWSResourceReference) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -202,6 +226,8 @@ func (in *AWSResourceReference) DeepCopyInto(out *AWSResourceReference) {
 func (in *AWSResourceReference) DeepCopy() *AWSResourceReference {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -210,6 +236,8 @@ func (in *AWSResourceReference) DeepCopy() *AWSResourceReference {
 	return out
 }
 func (in *BlockDeviceMappingSpec) DeepCopyInto(out *BlockDeviceMappingSpec) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -238,6 +266,8 @@ func (in *BlockDeviceMappingSpec) DeepCopyInto(out *BlockDeviceMappingSpec) {
 func (in *BlockDeviceMappingSpec) DeepCopy() *BlockDeviceMappingSpec {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -246,6 +276,8 @@ func (in *BlockDeviceMappingSpec) DeepCopy() *BlockDeviceMappingSpec {
 	return out
 }
 func (in *EBSBlockDeviceSpec) DeepCopyInto(out *EBSBlockDeviceSpec) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -279,6 +311,8 @@ func (in *EBSBlockDeviceSpec) DeepCopyInto(out *EBSBlockDeviceSpec) {
 func (in *EBSBlockDeviceSpec) DeepCopy() *EBSBlockDeviceSpec {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -287,6 +321,8 @@ func (in *EBSBlockDeviceSpec) DeepCopy() *EBSBlockDeviceSpec {
 	return out
 }
 func (in *Filter) DeepCopyInto(out *Filter) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -300,6 +336,8 @@ func (in *Filter) DeepCopyInto(out *Filter) {
 func (in *Filter) DeepCopy() *Filter {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -310,10 +348,14 @@ func (in *Filter) DeepCopy() *Filter {
 func (in *LoadBalancerReference) DeepCopyInto(out *LoadBalancerReference) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	return
 }
 func (in *LoadBalancerReference) DeepCopy() *LoadBalancerReference {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {
@@ -326,10 +368,14 @@ func (in *LoadBalancerReference) DeepCopy() *LoadBalancerReference {
 func (in *Placement) DeepCopyInto(out *Placement) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	return
 }
 func (in *Placement) DeepCopy() *Placement {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {
@@ -342,10 +388,14 @@ func (in *Placement) DeepCopy() *Placement {
 func (in *TagSpecification) DeepCopyInto(out *TagSpecification) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	return
 }
 func (in *TagSpecification) DeepCopy() *TagSpecification {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {

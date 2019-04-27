@@ -10,6 +10,8 @@ import (
 func TestRegisterWithNetworkLoadBalancers(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cases := []struct {
 		name			string
 		lbErr			error

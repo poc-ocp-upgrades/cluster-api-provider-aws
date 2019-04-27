@@ -13,6 +13,8 @@ import (
 func createSecretAndWait(f *framework.Framework, secret *apiv1.Secret) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_, err := f.KubeClient.CoreV1().Secrets(secret.Namespace).Create(secret)
 	Expect(err).NotTo(HaveOccurred())
 	err = wait.Poll(framework.PollInterval, framework.PoolTimeout, func() (bool, error) {
@@ -26,6 +28,8 @@ func createSecretAndWait(f *framework.Framework, secret *apiv1.Secret) {
 func getMachineProviderStatus(f *framework.Framework, machine *MachineV1beta1.Machine) *providerconfigv1.AWSMachineProviderStatus {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machine, err := f.CAPIClient.MachineV1beta1().Machines(machine.Namespace).Get(machine.Name, metav1.GetOptions{})
 	Expect(err).NotTo(HaveOccurred())
 	codec, err := providerconfigv1.NewCodec()
@@ -36,6 +40,8 @@ func getMachineProviderStatus(f *framework.Framework, machine *MachineV1beta1.Ma
 	return machineProviderStatus
 }
 func getMachineCondition(f *framework.Framework, machine *MachineV1beta1.Machine) providerconfigv1.AWSMachineProviderCondition {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	conditions := getMachineProviderStatus(f, machine).Conditions

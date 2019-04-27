@@ -24,6 +24,8 @@ import (
 func init() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	machinev1.AddToScheme(scheme.Scheme)
 }
 
@@ -34,6 +36,8 @@ const (
 )
 
 func TestMachineEvents(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	codec, err := providerconfigv1.NewCodec()
@@ -122,6 +126,8 @@ func TestMachineEvents(t *testing.T) {
 	}
 }
 func TestActuator(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machine, err := stubMachine()
@@ -279,6 +285,8 @@ func TestActuator(t *testing.T) {
 func TestAvailabiltyZone(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cases := []struct {
 		name			string
 		availabilityZone	string
@@ -343,6 +351,8 @@ type placementMatcher struct{ placement *ec2.Placement }
 func (m placementMatcher) Matches(input interface{}) bool {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	runInstancesInput, ok := input.(*ec2.RunInstancesInput)
 	if !ok {
 		return false
@@ -353,6 +363,8 @@ func (m placementMatcher) Matches(input interface{}) bool {
 	return false
 }
 func (m placementMatcher) String() string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return fmt.Sprintf("is placement: %#v", m.placement)

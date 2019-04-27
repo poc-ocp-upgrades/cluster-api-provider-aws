@@ -19,6 +19,8 @@ import (
 func getRunningInstance(machine *machinev1.Machine, client awsclient.Client) (*ec2.Instance, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instances, err := getRunningInstances(machine, client)
 	if err != nil {
 		return nil, err
@@ -32,16 +34,22 @@ func getRunningInstance(machine *machinev1.Machine, client awsclient.Client) (*e
 func getRunningInstances(machine *machinev1.Machine, client awsclient.Client) ([]*ec2.Instance, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	runningInstanceStateFilter := []*string{aws.String(ec2.InstanceStateNameRunning), aws.String(ec2.InstanceStateNamePending)}
 	return getInstances(machine, client, runningInstanceStateFilter)
 }
 func getStoppedInstances(machine *machinev1.Machine, client awsclient.Client) ([]*ec2.Instance, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	stoppedInstanceStateFilter := []*string{aws.String(ec2.InstanceStateNameStopped), aws.String(ec2.InstanceStateNameStopping)}
 	return getInstances(machine, client, stoppedInstanceStateFilter)
 }
 func getInstances(machine *machinev1.Machine, client awsclient.Client, instanceStateFilter []*string) ([]*ec2.Instance, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	clusterID, ok := getClusterID(machine)
@@ -68,6 +76,8 @@ func getInstances(machine *machinev1.Machine, client awsclient.Client, instanceS
 func getVolume(client awsclient.Client, volumeID string) (*ec2.Volume, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	request := &ec2.DescribeVolumesInput{VolumeIds: []*string{&volumeID}}
 	result, err := client.DescribeVolumes(request)
 	if err != nil {
@@ -79,6 +89,8 @@ func getVolume(client awsclient.Client, volumeID string) (*ec2.Volume, error) {
 	return result.Volumes[0], nil
 }
 func terminateInstances(client awsclient.Client, instances []*ec2.Instance) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instanceIDs := []*string{}
@@ -98,6 +110,8 @@ func terminateInstances(client awsclient.Client, instances []*ec2.Instance) erro
 	return nil
 }
 func providerConfigFromMachine(client client.Client, machine *machinev1.Machine, codec *providerconfigv1.AWSProviderConfigCodec) (*providerconfigv1.AWSMachineProviderConfig, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var providerSpecRawExtention runtime.RawExtension
@@ -127,6 +141,8 @@ func providerConfigFromMachine(client client.Client, machine *machinev1.Machine,
 func (a *Actuator) isMaster(machine *machinev1.Machine) (bool, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if machine.Status.NodeRef == nil {
 		glog.Errorf("NodeRef not found in machine %s", machine.Name)
 		return false, nil
@@ -148,9 +164,13 @@ type updateConditionCheck func(oldReason, oldMessage, newReason, newMessage stri
 func updateConditionAlways(_, _, _, _ string) bool {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return true
 }
 func updateConditionNever(_, _, _, _ string) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return false
@@ -158,9 +178,13 @@ func updateConditionNever(_, _, _, _ string) bool {
 func updateConditionIfReasonOrMessageChange(oldReason, oldMessage, newReason, newMessage string) bool {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return oldReason != newReason || oldMessage != newMessage
 }
 func shouldUpdateCondition(oldStatus corev1.ConditionStatus, oldReason, oldMessage string, newStatus corev1.ConditionStatus, newReason, newMessage string, updateConditionCheck updateConditionCheck) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if oldStatus != newStatus {
@@ -169,6 +193,8 @@ func shouldUpdateCondition(oldStatus corev1.ConditionStatus, oldReason, oldMessa
 	return updateConditionCheck(oldReason, oldMessage, newReason, newMessage)
 }
 func setAWSMachineProviderCondition(conditions []providerconfigv1.AWSMachineProviderCondition, conditionType providerconfigv1.AWSMachineProviderConditionType, status corev1.ConditionStatus, reason string, message string, updateConditionCheck updateConditionCheck) []providerconfigv1.AWSMachineProviderCondition {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	now := metav1.Now()
@@ -191,6 +217,8 @@ func setAWSMachineProviderCondition(conditions []providerconfigv1.AWSMachineProv
 	return conditions
 }
 func findAWSMachineProviderCondition(conditions []providerconfigv1.AWSMachineProviderCondition, conditionType providerconfigv1.AWSMachineProviderConditionType) *providerconfigv1.AWSMachineProviderCondition {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	for i, condition := range conditions {

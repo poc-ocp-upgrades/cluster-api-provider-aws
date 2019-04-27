@@ -21,6 +21,8 @@ type MockClientMockRecorder struct{ mock *MockClient }
 func NewMockClient(ctrl *gomock.Controller) *MockClient {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	mock := &MockClient{ctrl: ctrl}
 	mock.recorder = &MockClientMockRecorder{mock}
 	return mock
@@ -28,9 +30,13 @@ func NewMockClient(ctrl *gomock.Controller) *MockClient {
 func (m *MockClient) EXPECT() *MockClientMockRecorder {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return m.recorder
 }
 func (m *MockClient) DescribeImages(arg0 *ec2.DescribeImagesInput) (*ec2.DescribeImagesOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeImages", arg0)
@@ -41,9 +47,13 @@ func (m *MockClient) DescribeImages(arg0 *ec2.DescribeImagesInput) (*ec2.Describ
 func (mr *MockClientMockRecorder) DescribeImages(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeImages", reflect.TypeOf((*MockClient)(nil).DescribeImages), arg0)
 }
 func (m *MockClient) DescribeVpcs(arg0 *ec2.DescribeVpcsInput) (*ec2.DescribeVpcsOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeVpcs", arg0)
@@ -54,9 +64,13 @@ func (m *MockClient) DescribeVpcs(arg0 *ec2.DescribeVpcsInput) (*ec2.DescribeVpc
 func (mr *MockClientMockRecorder) DescribeVpcs(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeVpcs", reflect.TypeOf((*MockClient)(nil).DescribeVpcs), arg0)
 }
 func (m *MockClient) DescribeSubnets(arg0 *ec2.DescribeSubnetsInput) (*ec2.DescribeSubnetsOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeSubnets", arg0)
@@ -67,9 +81,13 @@ func (m *MockClient) DescribeSubnets(arg0 *ec2.DescribeSubnetsInput) (*ec2.Descr
 func (mr *MockClientMockRecorder) DescribeSubnets(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeSubnets", reflect.TypeOf((*MockClient)(nil).DescribeSubnets), arg0)
 }
 func (m *MockClient) DescribeAvailabilityZones(arg0 *ec2.DescribeAvailabilityZonesInput) (*ec2.DescribeAvailabilityZonesOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeAvailabilityZones", arg0)
@@ -80,9 +98,13 @@ func (m *MockClient) DescribeAvailabilityZones(arg0 *ec2.DescribeAvailabilityZon
 func (mr *MockClientMockRecorder) DescribeAvailabilityZones(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeAvailabilityZones", reflect.TypeOf((*MockClient)(nil).DescribeAvailabilityZones), arg0)
 }
 func (m *MockClient) DescribeSecurityGroups(arg0 *ec2.DescribeSecurityGroupsInput) (*ec2.DescribeSecurityGroupsOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeSecurityGroups", arg0)
@@ -93,9 +115,13 @@ func (m *MockClient) DescribeSecurityGroups(arg0 *ec2.DescribeSecurityGroupsInpu
 func (mr *MockClientMockRecorder) DescribeSecurityGroups(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeSecurityGroups", reflect.TypeOf((*MockClient)(nil).DescribeSecurityGroups), arg0)
 }
 func (m *MockClient) RunInstances(arg0 *ec2.RunInstancesInput) (*ec2.Reservation, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "RunInstances", arg0)
@@ -106,9 +132,13 @@ func (m *MockClient) RunInstances(arg0 *ec2.RunInstancesInput) (*ec2.Reservation
 func (mr *MockClientMockRecorder) RunInstances(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RunInstances", reflect.TypeOf((*MockClient)(nil).RunInstances), arg0)
 }
 func (m *MockClient) DescribeInstances(arg0 *ec2.DescribeInstancesInput) (*ec2.DescribeInstancesOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeInstances", arg0)
@@ -119,9 +149,13 @@ func (m *MockClient) DescribeInstances(arg0 *ec2.DescribeInstancesInput) (*ec2.D
 func (mr *MockClientMockRecorder) DescribeInstances(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeInstances", reflect.TypeOf((*MockClient)(nil).DescribeInstances), arg0)
 }
 func (m *MockClient) TerminateInstances(arg0 *ec2.TerminateInstancesInput) (*ec2.TerminateInstancesOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "TerminateInstances", arg0)
@@ -132,9 +166,13 @@ func (m *MockClient) TerminateInstances(arg0 *ec2.TerminateInstancesInput) (*ec2
 func (mr *MockClientMockRecorder) TerminateInstances(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "TerminateInstances", reflect.TypeOf((*MockClient)(nil).TerminateInstances), arg0)
 }
 func (m *MockClient) DescribeVolumes(arg0 *ec2.DescribeVolumesInput) (*ec2.DescribeVolumesOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "DescribeVolumes", arg0)
@@ -145,9 +183,13 @@ func (m *MockClient) DescribeVolumes(arg0 *ec2.DescribeVolumesInput) (*ec2.Descr
 func (mr *MockClientMockRecorder) DescribeVolumes(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DescribeVolumes", reflect.TypeOf((*MockClient)(nil).DescribeVolumes), arg0)
 }
 func (m *MockClient) RegisterInstancesWithLoadBalancer(arg0 *elb.RegisterInstancesWithLoadBalancerInput) (*elb.RegisterInstancesWithLoadBalancerOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "RegisterInstancesWithLoadBalancer", arg0)
@@ -158,9 +200,13 @@ func (m *MockClient) RegisterInstancesWithLoadBalancer(arg0 *elb.RegisterInstanc
 func (mr *MockClientMockRecorder) RegisterInstancesWithLoadBalancer(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RegisterInstancesWithLoadBalancer", reflect.TypeOf((*MockClient)(nil).RegisterInstancesWithLoadBalancer), arg0)
 }
 func (m *MockClient) ELBv2DescribeLoadBalancers(arg0 *elbv2.DescribeLoadBalancersInput) (*elbv2.DescribeLoadBalancersOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "ELBv2DescribeLoadBalancers", arg0)
@@ -171,9 +217,13 @@ func (m *MockClient) ELBv2DescribeLoadBalancers(arg0 *elbv2.DescribeLoadBalancer
 func (mr *MockClientMockRecorder) ELBv2DescribeLoadBalancers(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ELBv2DescribeLoadBalancers", reflect.TypeOf((*MockClient)(nil).ELBv2DescribeLoadBalancers), arg0)
 }
 func (m *MockClient) ELBv2DescribeTargetGroups(arg0 *elbv2.DescribeTargetGroupsInput) (*elbv2.DescribeTargetGroupsOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "ELBv2DescribeTargetGroups", arg0)
@@ -184,9 +234,13 @@ func (m *MockClient) ELBv2DescribeTargetGroups(arg0 *elbv2.DescribeTargetGroupsI
 func (mr *MockClientMockRecorder) ELBv2DescribeTargetGroups(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ELBv2DescribeTargetGroups", reflect.TypeOf((*MockClient)(nil).ELBv2DescribeTargetGroups), arg0)
 }
 func (m *MockClient) ELBv2RegisterTargets(arg0 *elbv2.RegisterTargetsInput) (*elbv2.RegisterTargetsOutput, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ret := m.ctrl.Call(m, "ELBv2RegisterTargets", arg0)
@@ -197,12 +251,23 @@ func (m *MockClient) ELBv2RegisterTargets(arg0 *elbv2.RegisterTargetsInput) (*el
 func (mr *MockClientMockRecorder) ELBv2RegisterTargets(arg0 interface{}) *gomock.Call {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ELBv2RegisterTargets", reflect.TypeOf((*MockClient)(nil).ELBv2RegisterTargets), arg0)
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
-	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

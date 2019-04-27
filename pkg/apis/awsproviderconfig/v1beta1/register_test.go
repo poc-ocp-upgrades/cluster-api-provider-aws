@@ -13,6 +13,8 @@ import (
 func TestEncodeAndDecodeProviderStatus(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	codec, err := NewCodec()
 	if err != nil {
 		t.Fatal(err)
@@ -41,6 +43,8 @@ func TestEncodeAndDecodeProviderStatus(t *testing.T) {
 	}
 }
 func TestEncodeAndDecodeProviderSpec(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	codec, err := NewCodec()

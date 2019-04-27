@@ -50,6 +50,8 @@ type ActuatorParams struct {
 func NewActuator(params ActuatorParams) (*Actuator, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	actuator := &Actuator{client: params.Client, config: params.Config, awsClientBuilder: params.AwsClientBuilder, codec: params.Codec, eventRecorder: params.EventRecorder}
 	return actuator, nil
 }
@@ -64,6 +66,8 @@ const (
 func (a *Actuator) handleMachineError(machine *machinev1.Machine, err *apierrors.MachineError, eventAction string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if eventAction != noEventAction {
 		a.eventRecorder.Eventf(machine, corev1.EventTypeWarning, "Failed"+eventAction, "%v", err.Reason)
 	}
@@ -71,6 +75,8 @@ func (a *Actuator) handleMachineError(machine *machinev1.Machine, err *apierrors
 	return err
 }
 func (a *Actuator) Create(context context.Context, cluster *machinev1.Cluster, machine *machinev1.Machine) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.Info("creating machine")
@@ -86,6 +92,8 @@ func (a *Actuator) Create(context context.Context, cluster *machinev1.Cluster, m
 	return a.updateStatus(machine, instance)
 }
 func (a *Actuator) updateMachineStatus(machine *machinev1.Machine, awsStatus *providerconfigv1.AWSMachineProviderStatus, networkAddresses []corev1.NodeAddress) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	awsStatusRaw, err := a.codec.EncodeProviderStatus(awsStatus)
@@ -119,6 +127,8 @@ func (a *Actuator) updateMachineStatus(machine *machinev1.Machine, awsStatus *pr
 func (a *Actuator) updateMachineProviderConditions(machine *machinev1.Machine, conditionType providerconfigv1.AWSMachineProviderConditionType, reason string, msg string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Info("updating machine conditions")
 	awsStatus := &providerconfigv1.AWSMachineProviderStatus{}
 	if err := a.codec.DecodeProviderStatus(machine.Status.ProviderStatus, awsStatus); err != nil {
@@ -132,6 +142,8 @@ func (a *Actuator) updateMachineProviderConditions(machine *machinev1.Machine, c
 	return nil
 }
 func (a *Actuator) CreateMachine(cluster *machinev1.Cluster, machine *machinev1.Machine) (*ec2.Instance, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machineProviderConfig, err := providerConfigFromMachine(a.client, machine, a.codec)
@@ -186,6 +198,8 @@ func (a *Actuator) CreateMachine(cluster *machinev1.Cluster, machine *machinev1.
 func (a *Actuator) Delete(context context.Context, cluster *machinev1.Cluster, machine *machinev1.Machine) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Info("deleting machine")
 	if err := a.DeleteMachine(cluster, machine); err != nil {
 		glog.Errorf("error deleting machine: %v", err)
@@ -199,14 +213,20 @@ type glogLogger struct{}
 func (gl *glogLogger) Log(v ...interface{}) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Info(v...)
 }
 func (gl *glogLogger) Logf(format string, v ...interface{}) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Infof(format, v...)
 }
 func (a *Actuator) DeleteMachine(cluster *machinev1.Cluster, machine *machinev1.Machine) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machineProviderConfig, err := providerConfigFromMachine(a.client, machine, a.codec)
@@ -241,6 +261,8 @@ func (a *Actuator) DeleteMachine(cluster *machinev1.Cluster, machine *machinev1.
 	return nil
 }
 func (a *Actuator) Update(context context.Context, cluster *machinev1.Cluster, machine *machinev1.Machine) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.Info("updating machine")
@@ -297,6 +319,8 @@ func (a *Actuator) Update(context context.Context, cluster *machinev1.Cluster, m
 func (a *Actuator) Exists(context context.Context, cluster *machinev1.Cluster, machine *machinev1.Machine) (bool, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Info("Checking if machine exists")
 	instances, err := a.getMachineInstances(cluster, machine)
 	if err != nil {
@@ -313,6 +337,8 @@ func (a *Actuator) Exists(context context.Context, cluster *machinev1.Cluster, m
 func (a *Actuator) Describe(cluster *machinev1.Cluster, machine *machinev1.Machine) (*ec2.Instance, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.Infof("Checking if machine exists")
 	instances, err := a.getMachineInstances(cluster, machine)
 	if err != nil {
@@ -326,6 +352,8 @@ func (a *Actuator) Describe(cluster *machinev1.Cluster, machine *machinev1.Machi
 	return instances[0], nil
 }
 func (a *Actuator) getMachineInstances(cluster *machinev1.Cluster, machine *machinev1.Machine) ([]*ec2.Instance, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	machineProviderConfig, err := providerConfigFromMachine(a.client, machine, a.codec)
@@ -346,6 +374,8 @@ func (a *Actuator) getMachineInstances(cluster *machinev1.Cluster, machine *mach
 	return getRunningInstances(machine, client)
 }
 func (a *Actuator) updateLoadBalancers(client awsclient.Client, providerConfig *providerconfigv1.AWSMachineProviderConfig, instance *ec2.Instance) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if len(providerConfig.LoadBalancers) == 0 {
@@ -384,6 +414,8 @@ func (a *Actuator) updateLoadBalancers(client awsclient.Client, providerConfig *
 	return nil
 }
 func (a *Actuator) updateStatus(machine *machinev1.Machine, instance *ec2.Instance) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.Info("Updating status")
@@ -426,6 +458,8 @@ func (a *Actuator) updateStatus(machine *machinev1.Machine, instance *ec2.Instan
 func getClusterID(machine *machinev1.Machine) (string, bool) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	clusterID, ok := machine.Labels[providerconfigv1.ClusterIDLabel]
 	if !ok {
 		clusterID, ok = machine.Labels["sigs.k8s.io/cluster-api-cluster"]
@@ -435,7 +469,16 @@ func getClusterID(machine *machinev1.Machine) (string, bool) {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

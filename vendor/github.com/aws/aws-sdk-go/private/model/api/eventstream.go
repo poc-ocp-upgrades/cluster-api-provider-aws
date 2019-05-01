@@ -128,7 +128,7 @@ func (a *API) setupEventStreams() {
 			EventStreamAPI: op.EventStreamAPI,
 			IsEventStream:  true,
 			MemberRefs: map[string]*ShapeRef{
-				"Inbound": &ShapeRef{
+				"Inbound": {
 					ShapeName: inbound.Shape.ShapeName,
 				},
 			},
@@ -843,7 +843,7 @@ var eventStreamTestTmpl = template.Must(
 		"ValueForType":               valueForType,
 		"HasNonBlobPayloadMembers":   eventHasNonBlobPayloadMembers,
 		"SetEventHeaderValueForType": setEventHeaderValueForType,
-		"Map": templateMap,
+		"Map":                        templateMap,
 		"OptionalAddInt": func(do bool, a, b int) int {
 			if !do {
 				return a

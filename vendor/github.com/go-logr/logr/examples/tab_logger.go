@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"fmt"
+	"os"
 	"text/tabwriter"
 
 	"github.com/go-logr/logr"
@@ -10,8 +10,8 @@ import (
 
 // TabLogger is a sample logr.Logger that logs to stderr.
 // It's terribly inefficient, and is *only* a basic example.
-type TabLogger struct{
-	name string
+type TabLogger struct {
+	name      string
 	keyValues map[string]interface{}
 
 	writer *tabwriter.Writer
@@ -46,9 +46,9 @@ func (l *TabLogger) V(_ int) logr.InfoLogger {
 
 func (l *TabLogger) WithName(name string) logr.Logger {
 	return &TabLogger{
-		name: l.name+"."+name,
+		name:      l.name + "." + name,
 		keyValues: l.keyValues,
-		writer: l.writer,
+		writer:    l.writer,
 	}
 }
 
@@ -61,9 +61,9 @@ func (l *TabLogger) WithValues(kvs ...interface{}) logr.Logger {
 		newMap[kvs[i].(string)] = kvs[i+1]
 	}
 	return &TabLogger{
-		name: l.name,
+		name:      l.name,
 		keyValues: newMap,
-		writer: l.writer,
+		writer:    l.writer,
 	}
 }
 

@@ -125,8 +125,8 @@ func main() {
 	restful.DefaultContainer.Add(u.WebService())
 
 	config := restfulspec.Config{
-		WebServices: restful.RegisteredWebServices(), // you control what services are visible
-		APIPath:     "/apidocs.json",
+		WebServices:                   restful.RegisteredWebServices(), // you control what services are visible
+		APIPath:                       "/apidocs.json",
 		PostBuildSwaggerObjectHandler: enrichSwaggerObject}
 	restful.DefaultContainer.Add(restfulspec.NewOpenAPIService(config))
 
@@ -156,7 +156,7 @@ func enrichSwaggerObject(swo *spec.Swagger) {
 			Version: "1.0.0",
 		},
 	}
-	swo.Tags = []spec.Tag{spec.Tag{TagProps: spec.TagProps{
+	swo.Tags = []spec.Tag{{TagProps: spec.TagProps{
 		Name:        "users",
 		Description: "Managing users"}}}
 }

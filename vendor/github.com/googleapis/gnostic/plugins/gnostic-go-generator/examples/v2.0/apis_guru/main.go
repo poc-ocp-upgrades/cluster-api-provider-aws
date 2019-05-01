@@ -25,7 +25,7 @@ func main() {
 	}
 
 	keys := make([]string, 0)
-	for key, _ := range *apis.OK {
+	for key := range *apis.OK {
 		keys = append(keys, key)
 	}
 	sort.Strings(keys)
@@ -33,7 +33,7 @@ func main() {
 	for _, key := range keys {
 		api := (*apis.OK)[key]
 		versions := make([]string, 0)
-		for key, _ := range api.Versions {
+		for key := range api.Versions {
 			versions = append(versions, key)
 		}
 		sort.Strings(versions)

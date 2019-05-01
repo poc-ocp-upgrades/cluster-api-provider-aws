@@ -337,7 +337,7 @@ func (g *Gnostic) readOptions() {
 		} else if arg[0] == '-' && arg[1] == '-' {
 			// try letting the option specify a plugin with no output files (or unwanted output files)
 			// this is useful for calling plugins like linters that only return messages
-			p := &pluginCall{Name: arg[2:len(arg)], Invocation: "!"}
+			p := &pluginCall{Name: arg[2:], Invocation: "!"}
 			g.pluginCalls = append(g.pluginCalls, p)
 		} else if arg[0] == '-' {
 			fmt.Fprintf(os.Stderr, "Unknown option: %s.\n%s\n", arg, g.usage)

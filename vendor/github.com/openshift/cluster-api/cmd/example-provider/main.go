@@ -19,7 +19,6 @@ package main
 import (
 	"flag"
 
-	"k8s.io/klog"
 	clusterapis "github.com/openshift/cluster-api/pkg/apis"
 	"github.com/openshift/cluster-api/pkg/apis/cluster/common"
 	"github.com/openshift/cluster-api/pkg/client/clientset_generated/clientset"
@@ -27,6 +26,7 @@ import (
 	capimachine "github.com/openshift/cluster-api/pkg/controller/machine"
 	"github.com/openshift/cluster-api/pkg/provider/example/actuators/cluster"
 	"github.com/openshift/cluster-api/pkg/provider/example/actuators/machine"
+	"k8s.io/klog"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/runtime/signals"

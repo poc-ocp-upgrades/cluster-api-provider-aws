@@ -16,7 +16,7 @@ package main
 
 import (
 	openapi "github.com/googleapis/gnostic/OpenAPIv3"
-        plugins "github.com/googleapis/gnostic/plugins"
+	plugins "github.com/googleapis/gnostic/plugins"
 )
 
 // DocumentLinter contains information collected about an API description.
